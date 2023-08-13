@@ -105,3 +105,14 @@ sys_trace(void)
     return -1;
   return trace(mask);
 }
+
+uint64
+sys_sysinfo(void)
+{
+  uint64 info_addr;
+  
+  if(argaddr(0, &info_addr) < 0)
+    return -1;
+  printf("sys_sysinfo is running, addr: %x\n", info_addr);
+  return sysinfo(info_addr);
+}
